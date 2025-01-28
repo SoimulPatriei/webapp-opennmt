@@ -1,0 +1,42 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"  # Management UI
+      - "5672:5672"    # AMQP protocol
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+      RABBITMQ_HEARTBEAT: 600
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "check_running"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+
+  web:
+    build: .                     # Build from Dockerfile in the current directory
+    volumes:
+      - app_data:/usr/src/app    # Use a named volume for reproducibility
+    ports:
+      - "5000:5000"              # Expose port 5000 for Flask
+    environment:
+      RABBITMQ_HOST: rabbitmq    # RabbitMQ host
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  nmt_worker:
+    build: .                     # Reuse the same Dockerfile
+    command: python /usr/src/app/OpenNMT/nmt_worker.py
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      RABBITMQ_HOST: rabbitmq
+    volumes:
+      - app_data:/usr/src/app
+
+volumes:
+  app_data:

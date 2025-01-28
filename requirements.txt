@@ -1,0 +1,9 @@
+# requirements.txt
+opennmt-py
+pika
+flask
+nltk
+psutil
+numpy==1.23.5
+pandas
+
