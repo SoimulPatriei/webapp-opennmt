@@ -53,3 +53,8 @@ Improving Estonian Text Simplification through Pretrained Language Models and Cu
 by Eduard Barbu, Meeri-Ly Muru, Sten Marcus Malva
 https://arxiv.org/abs/2501.15624
 
+## Related Project
+
+Looking for an alternative approach to Estonian text simplification? Check out [webapp-llama](https://github.com/SoimulPatriei/webapp-llama), which simplifies Estonian text using fine-tuned Llama 3.1.
+
+
