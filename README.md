@@ -35,7 +35,10 @@ This project provides a Dockerized application for Estonian text simplification 
    docker-compose up --build
    
  3. Access the server in your browser on port 5000:  
-   You cab access the server in your browser on the port 5000 (e.g. http://localhost:5000/)
+   You can access the server in your browser on the port 5000 (e.g. http://localhost:5000/)
+   
+   ![Estonian Text Simplification Interface](interface.png)
+
    
 
 ## Credits
