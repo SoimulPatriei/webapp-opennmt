@@ -44,7 +44,7 @@ This project provides a Dockerized application for Estonian text simplification 
     This software was created as part of the EKTB55 project "Teksti lihtsustamine eesti keeles".
 
 
-##Paper
+## Paper
 If you use this interface or want to learn more, please consult the paper:
 Improving Estonian Text Simplification through Pretrained Language Models and Custom Datasets
 by Eduard Barbu, Meeri-Ly Muru, Sten Marcus Malva
